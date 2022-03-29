@@ -1,0 +1,15 @@
+{% extends 'appblog/base.html' %}
+{% block main %}
+    {% if formulario.errors %}
+    <p style="color: red"> Hay problemas con los datos cargados</p>
+    {% endif %}
+
+    <form action="/create-post" method="POST">
+    {% csrf_token %}
+    <table class="table table-striped">
+        {{formulario.as_table}}
+    </table>
+
+    <input type="submit" value="Post">
+    </form>
+{% endblock %}
